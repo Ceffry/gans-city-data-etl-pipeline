@@ -45,7 +45,7 @@ Full schema: [`sql/schema.sql`](sql/schema.sql)
 
 **Wikipedia's population field wasn't where expected.** The population number isn't a direct sibling of the "Population" label in the infobox, searching immediately after the label text returned the wrong element. Solved with `.find_next("td")` to search forward in the document until the actual data cell was found, then stripped the thousands-separator commas and cast the result to an integer.
 
-**The flights API only returns 12 hours of data per call.** A full day of arrivals for one airport required two separate calls — `00:00–11:59` and `12:00–23:59`, handled inside the same function so the split is invisible to whoever calls it with just a list of ICAO codes.
+**The flights API only returns 12 hours of data per call.** A full day of arrivals for one airport required two separate calls, `00:00–11:59` and `12:00–23:59`, handled inside the same function so the split is invisible to whoever calls it with just a list of ICAO codes.
 
 **Matching airports back to cities wasn't guaranteed.** The airport search API returns every airport within a radius of a city's coordinates, not just the one for that city, searching near Cologne, for example, also returned Düsseldorf's airport. Merging the results against the known city list and dropping rows with no matching `city_id` filtered these out before loading into `cities_airports`.
 
