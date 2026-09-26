@@ -76,7 +76,3 @@ Full schema: [`sql/schema.sql`](sql/schema.sql)
     ├── schema.sql               database schema (CREATE TABLE statements)
     └── schema_diagram.png       entity-relationship diagram
 ```
-
-## Author
-
-Robert — solo project, WBS Coding School Data Analytics bootcamp
